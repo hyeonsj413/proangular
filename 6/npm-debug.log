@@ -1,0 +1,22 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'link' ]
+2 info using npm@3.10.3
+3 info using node@v6.5.0
+4 verbose config Skipping project config: /Users/Slogup/.npmrc. (matches userconfig)
+5 verbose linkPkg /Users/Slogup
+6 verbose stack Error: ENOENT: no such file or directory, open '/Users/Slogup/package.json'
+6 verbose stack     at Error (native)
+7 verbose cwd /Users/Slogup/WebstormProjects/proangular/6
+8 error Darwin 15.6.0
+9 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "link"
+10 error node v6.5.0
+11 error npm  v3.10.3
+12 error path /Users/Slogup/package.json
+13 error code ENOENT
+14 error errno -2
+15 error syscall open
+16 error enoent ENOENT: no such file or directory, open '/Users/Slogup/package.json'
+17 error enoent ENOENT: no such file or directory, open '/Users/Slogup/package.json'
+17 error enoent This is most likely not a problem with npm itself
+17 error enoent and is related to npm not being able to find a file.
+18 verbose exit [ -2, true ]
