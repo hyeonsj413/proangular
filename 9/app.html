@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <title></title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script src="angular.js"></script>
+    <script>
+       var myApp = angular.module("exapmelApp", []);
+
+
+        myApp.controller("dayCtrl", function($scope){
+
+        });
+
+
+    </script>
+</head>
+<body ng-controller="dayCtrl">
+    <div class="panel" ng-controller="dayCtrl">
+        <div class="page-header">
+            <h3>app</h3>
+        </div>
+        <h4>today is {{ day || "unknown" }}</h4>
+    </div>
+</body>
+</html>
