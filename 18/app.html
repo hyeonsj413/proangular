@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Directives</title>
+    <script src="angular.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script>
+        angular.module("exampleApp", [])
+                .controller("defaultCtrl", function ($scope) {
+                    $scope.todos = [
+                        { action: "Get groceries", complete: false },
+                        { action: "Call plumber", complete: false },
+                        { action: "Buy running shoes", complete: true },
+                        { action: "Buy flowers", complete: false },
+                        { action: "Call family", complete: false }];
+
+                    $scope.addNewItem = function ( newItem ){
+                        if( newItem && newItem.action && newItem.location ){
+                            $scope.todos.push({
+                                action: newItem.action +" (" + newItem.location +")",
+                                complete: false
+                            });
+                        }
+
+                    }
+                });
+
+
+    </script>
+
+</head>
+<body>
+<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+    <h3 class="panel-header">To Do List
+        <span class="label label-info">
+            {{ (todos | filter: {complete: 'false'}).length }}
+        </span>
+
+    </h3>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="well">
+                <div class="form-group row">
+                    <label for="actionText">Action:</label>
+                    <input id="actionText" class="form-control" ng-model="newTodo.action">
+                </div>
+
+                <div class="form-group row">
+                    <label for="locationText">Location:</label>
+                    <select id="locationText" class="form-control" ng-model="newTodo.location">
+                        <option>Home</option>
+                        <option>office</option>
+                        <option>Mall</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary btn-block" ng-click="addNewItem(newTodo)">Add</button>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <table class="table">
+                <thead>
+                <tr><th>#</th><th>Action</th><th>Done</th></tr>
+                </thead>
+                <tr ng-repeat="item in todos" >
+
+                    <td>{{$index + 1}}</td>
+                    <td>{{item.action}}</td>
+                    <td>
+                        <input type="checkbox" ng-model="item.complete">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+</div>
+</body>
+</html>
